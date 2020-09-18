@@ -13,7 +13,7 @@ import Articles from './components/Articles';
 function App() {
   const [posts, setPosts] = useState([])
   useEffect(() => {
-    axios.get('/articles',
+    axios.get('https://vhaeq8i93e.execute-api.eu-west-3.amazonaws.com/production/articles',
       // { headers: {'x-api-key': 'edCCjrXzhS4nsSpxSI2P0asvqRvVWcyD8A7q5GFZ'}, })
      { headers: { }})
       .then(res => setPosts(res.data))
