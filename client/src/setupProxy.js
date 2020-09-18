@@ -11,9 +11,9 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 module.exports = function(app) {
   app.use(
-    '/tokemo',
+    '/articles',
     createProxyMiddleware({
-      target: 'https://rt47smc2vg.execute-api.us-east-1.amazonaws.com/dev',
+      target: 'https://vhaeq8i93e.execute-api.eu-west-3.amazonaws.com/production',
       changeOrigin: true,
     })
   );

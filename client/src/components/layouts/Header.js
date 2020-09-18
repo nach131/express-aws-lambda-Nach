@@ -6,7 +6,7 @@ const Header = () => {
     <MainContainer>
       <h1>
         Welcome to the <br />
-  Pedakooo
+  AWS lambda Mongodb
 </h1>
     </MainContainer>
   )

@@ -6,24 +6,26 @@ import './index.css';
 import Header from './components/layouts/Header';
 import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/Footer';
-import Users from './components/Users';
+import Articles from './components/Articles';
+
 
 
 function App() {
-  const [items, setItems] = useState([])
+  const [posts, setPosts] = useState([])
   useEffect(() => {
-    axios.get('/tokemo',
-      { headers: {'x-api-key': 'edCCjrXzhS4nsSpxSI2P0asvqRvVWcyD8A7q5GFZ'}, })
-      .then(res => setItems(res.data))
+    axios.get('/articles',
+      // { headers: {'x-api-key': 'edCCjrXzhS4nsSpxSI2P0asvqRvVWcyD8A7q5GFZ'}, })
+     { headers: { }})
+      .then(res => setPosts(res.data))
       .catch(error => console.log(error));
-    // console.log(items)
+    // console.log(posts)
   })
 
   return (
     <div className="App">
       <Header />
       <Navbar />
-      <Route to="/" render={() => <Users items={items} />} />
+      <Route to="/" render={() => <Articles posts={posts}/>} />
       <Footer />
     </div>
   );
