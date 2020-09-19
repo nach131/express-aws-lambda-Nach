@@ -4,14 +4,18 @@ import { Link } from 'react-router-dom'
 
 import Spinner from "react-bootstrap/Spinner";
 
+const path = "https://vhaeq8i93e.execute-api.eu-west-3.amazonaws.com/production"
+
 
 const Article = (props) => {
+  
   const [title, setTitle] = useState('')
   const [article, setArticle] = useState('')
   const [authorname, setAuthorname] = useState('')
-
+  
   useEffect(() => {
-    axios.get(`/articles/${props.match.params.id}`)
+    
+    axios.get(`${path}/articles/${props.match.params.id}`)
       .then(res => [
         setTitle(res.data.title),
         setArticle(res.data.article),

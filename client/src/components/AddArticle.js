@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
+const path = "https://vhaeq8i93e.execute-api.eu-west-3.amazonaws.com/production"
+
 const AddArticle = () => {
   const [authorname, setAuthorname] = useState('');
   const [title, setTitle] = useState('');
@@ -20,7 +22,7 @@ const AddArticle = () => {
     setTitle("")
     setArticle("")
 
-    axios.post("/articles/add", articles)
+    axios.post(`${path}/articles/add`, articles)
       .then(res => setMessage(res.data))
       .catch(err => {
         console.log(err)

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
+const path = "https://vhaeq8i93e.execute-api.eu-west-3.amazonaws.com/production"
+
+
 const EditArticle = (props) => {
   const [authorname, setAuthorname] = useState('');
   const [title, setTitle] = useState('');
@@ -19,7 +22,7 @@ const EditArticle = (props) => {
     setTitle("")
     setArticle("")
 
-    axios.put(`/articles/update/${props.match.params.id}`, articles)
+    axios.put(`${path}/articles/update/${props.match.params.id}`, articles)
       .then(res => setMessage(res.data))
       .catch(err => {
         console.log(err)
@@ -27,7 +30,7 @@ const EditArticle = (props) => {
   }
 
   useEffect(() => {
-    axios.get(`/articles/${props.match.params.id}`)
+    axios.get(`${path}/articles/${props.match.params.id}`)
       .then(res => [
         setTitle(res.data.title),
         setArticle(res.data.article),

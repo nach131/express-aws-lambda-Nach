@@ -5,12 +5,16 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import axios from 'axios'
 
+const path = "https://vhaeq8i93e.execute-api.eu-west-3.amazonaws.com/production"
+
+
 const Articles = ({ posts }) => {
 
   const [article, setArticle] = useState([]);
   //DELETE ARTICLE BY ID
+  
   const deleteArticle = id => {
-    axios.delete(`/articles/${id}`).then(res => alert(res.data));
+    axios.delete(`${path}/articles/${id}`).then(res => alert(res.data));
     setArticle(article.filter(elem => elem._id !== id));
   }
   // console.log(posts)
